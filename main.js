@@ -84,7 +84,7 @@ const parseForTime = (event) => {
     }
 }
 function copyTime() {
-	// Allow user to copy mod message to clipboard
+	// Allow user to copy time to clipboard
 	const textArea = document.getElementById('time');
 	textArea.focus();
 	textArea.select();
