@@ -28,22 +28,22 @@ function compute() {
     if (seconds >= 60) {
         minutes = Math.floor(seconds / 60);
         seconds = seconds % 60;
-        seconds = seconds < 10 ? '0' + seconds : seconds;
     }
     if (minutes >= 60) {
         hours = Math.floor(minutes / 60);
         minutes = minutes % 60;
-        minutes = minutes < 10 ? '0' + minutes : minutes;
     }
 
+    seconds = seconds < 10 ? `0${seconds}` : seconds;
+    minutes = minutes < 10 ? `0${minutes}` : minutes;
     // Show the time and mod message in the DOM
-    let finalTime = hours.toString() + ':' + minutes.toString() + ':' + seconds.toString() + '.' + milliseconds.toString() + ' ';
+    let finalTime = hours.toString() + ':' + minutes.toString() + ':' + seconds.toString() + '.' + milliseconds.toString();
     let modMessage = `Mod Note: Time starts at ${parseFloat(startFrame).toFixed(3)} and ends at ${parseFloat(endFrame).toFixed(3)} at ${frameRate} fps to get a final time of ${finalTime}.`;
     // let credits = `Retimed using a custom version of slashinfty's retimer.`;
-    let credits = '.'
+    let credits = ''
     document.getElementById('time').value = finalTime;
     document.getElementById('modMessage').disabled = false;
-    document.getElementById('modMessage').innerText = modMessage + ' ' + credits;
+    document.getElementById('modMessage').value = modMessage + ' ' + credits;
     document.getElementById("modMessageButton").disabled = false;
 }
 
@@ -68,12 +68,28 @@ const validateFPS = (event) => {
         document.getElementById('startobj').disabled = false;
         document.getElementById('endobj').disabled = false;
         document.getElementById('computeButton').disabled = false;
+        if (document.getElementById('startobj').value != "" && document.getElementById('endobj').value != "") {
+            ["startobj", "endobj"].forEach(id => document.getElementById(id).value = Math.floor(document.getElementById(id).value * event.target.value) / event.target.value)
+            compute()
+        }
     }
 }
 
 const parseForTime = (event) => {
     // Get current frame from input field (either start time or end time)
+    if (!isNaN(event.target.value)) {
+        // Get the framerate
+        let frameRate = parseInt(document.getElementById('framerate').value);
+        // Calculate the frame
+        let frameFromObj = (time, fps) => Math.floor(time * fps) / fps; //round to the nearest frame
+        let finalFrame = frameFromObj(Number(event.target.value), frameRate);
+        // Update the DOM
+        document.getElementById(event.target.id).value = `${finalFrame}`;
+        compute()
+        return
+    }
     let frameFromInputText = (JSON.parse(event.target.value)).lct;
+    if (typeof frameFromInputText == 'undefined') { frameFromInputText = Number((JSON.parse(event.target.value)).cmt) }
     if (typeof frameFromInputText !== 'undefined') {
         // Get the framerate
         let frameRate = parseInt(document.getElementById('framerate').value);
@@ -82,6 +98,7 @@ const parseForTime = (event) => {
         let finalFrame = frameFromObj(frameFromInputText, frameRate);
         // Update the DOM
         document.getElementById(event.target.id).value = `${finalFrame}`;
+        compute()
     }
 }
 function copyTime() {
