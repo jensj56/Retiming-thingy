@@ -82,8 +82,8 @@ const parseForTime = (event) => {
         let finalFrame = frameFromObj(frameFromInputText, frameRate);
         // Update the DOM
         document.getElementById(event.target.id).value = `${finalFrame}`;
-        compute()
     }
+    compute()
 }
 function copyTime() {
     // Allow user to copy time to clipboard
