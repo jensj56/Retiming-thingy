@@ -8,54 +8,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="version" content="1.1.1" />
   <title>YouTube Frame Timer/Time calculator</title>
-  <!-- <link rel="stylesheet" href="https://stackedit.io/stle.css" /> -->
   <script src="main.js"></script>
 </head>
 <body style="background-color:rgb(24, 25, 25);"></body>
 <!-- information -->
-<body class="stackedit">
+<div class="white-text">
+  <body class="stackedit">
   <div class="stackedit__html">
-    <h1 style="color:rgb(189, 189, 189)" id="youtube-interval-timer">YouTube Frame Timer/Time calculator</h1>
-    <h3 style="color:rgb(189, 189, 189)" id="about">About</h3>
-    <p style="color:rgb(189, 189, 189)">Takes start and stop points of a YouTube video or Google Photo's video, down to the frame, and gives the time between them in the format
+    <h1 id="youtube-interval-timer">YouTube Frame Timer/Time calculator</h1>
+    <h3 id="about">About</h3>
+    <p>Takes start and stop points of a YouTube video or Google Photo's video, down to the frame, and gives the time between them in the format
       <code>1:23:45.678</code>. Source code is <a
-        href="https://github.com/slashinfty/yt-frame-timer">available</a>.
-        <p style="color:rgb(189, 189, 189)"> Source code for  <a href="https://github.com/jensj56/Retiming-thingy">this version</a> 
-    </p >
-    <p style="color:rgb(189, 189, 189)" id="about">Time calculator was taken from <a href="http://www.unitarium.com/time-calculator">here</a></h3>
-    <h3 style="color:rgb(189, 189, 189)" id="video-framerate">Video Framerate</h3>
-    <p style="color:rgb(189, 189, 189)">Right click the YouTube video and select “Stats for nerds.” The third line is “Current / Optimal Res” - find the
-      two numbers after the @ and enter them for framerate.</p>
-    <p>
-      <label style="color:rgb(189, 189, 189)" for="framerate">Framerate: </label>
-      <input type="text" id="framerate" size="3" value="60" onchange='validateFPS(event)' />
-    </p>
-    <h3 style="color:rgb(189, 189, 189)" id="video-endpoints">Video Endpoints</h3>
-    <p style="color:rgb(189, 189, 189)">
-      Find the starting point (you can use the <code>,</code> and <code>.</code> keys to find the exact frame). Right
-      click the video and select “Copy debug info” and paste it for starting frame. Repeat for ending frame.
-    </p>
-    <p style="color:rgb(189, 189, 189)">
-        This custom version is made so the time output can be pasted directly into a time calculator for loadless timing. It also has darkmode!
-      </p> 
-    <!--retimer is below here --> 
-      <label style="color:rgb(189, 189, 189)" for="startobj">Starting frame: </label>
-      <input type="text" id="startobj" style='width:100%' onchange='parseForTime(event)' />
-    </p>
-    <p style="color:rgb(189, 189, 189)">
-      <label for="endobj">Ending frame: </label>
-      <input type="text" id="endobj" style='width:100%' onchange='parseForTime(event)' />
-    </p>
-    <h3 style="color:rgb(189, 189, 189)" id="video-time">Video Time</h3>
-    <button id="computeButton" onclick="compute()">Compute time</button>&nbsp;<input type="text" id="time" readonly
-      size="20" />
-      <button id="copyButton" onclick="copyTime()">Copy time</button>
-    <p>
-      <textarea id="modMessage" cols="40" rows="5" disabled></textarea>
-    </p>
-    <button id="modMessageButton" onclick="copyModMessage()" disabled>Copy Mod Note to Clipboard</button>
-    <!-- Time calculator -->
-    <h1 style="color:rgb(189, 189, 189)" id="youtube-interval-timer">Time calculator</h1>
+          href="https://github.com/slashinfty/yt-frame-timer">available</a>.
+          <p> Source code for  <a href="https://github.com/jensj56/Retiming-thingy">this version</a> 
+      </p>
+      <p id="about">Time calculator was taken from <a href="http://www.unitarium.com/time-calculator">here</a></h3>
+      <h3 id="video-framerate">Video Framerate</h3>
+      <p>Right click the YouTube video and select “Stats for nerds.” The third line is “Current / Optimal Res” - find the
+        two numbers after the @ and enter them for framerate.</p>
+      <p>
+        <label for="framerate">Framerate: </label>
+        <input type="text" id="framerate" size="3" value="60" onchange='validateFPS(event)' />
+      </p>
+      <h3 id="video-endpoints">Video Endpoints</h3>
+      <p>
+        Find the starting point (you can use the <code>,</code> and <code>.</code> keys to find the exact frame). Right
+        click the video and select “Copy debug info” and paste it for starting frame. Repeat for ending frame.
+      </p>
+      <p>
+          This custom version is made so the time output can be pasted directly into a time calculator for loadless timing. It also has darkmode!
+        </p> 
+      <!--retimer is below here --> 
+        <label for="startobj">Starting frame: </label>
+        <input type="text" id="startobj" style='width:100%' onchange='parseForTime(event)' />
+      </p>
+      <p>
+        <label for="endobj">Ending frame: </label>
+        <input type="text" id="endobj" style='width:100%' onchange='parseForTime(event)' />
+      </p>
+      <h3 id="video-time">Video Time</h3>
+      <button id="computeButton" onclick="compute()">Compute time</button>&nbsp;<input type="text" id="time" readonly
+        size="20" />
+        <button id="copyButton" onclick="copyTime()">Copy time</button>
+      <p>
+        <textarea id="modMessage" cols="40" rows="5" disabled></textarea>
+      </p>
+      <button id="modMessageButton" onclick="copyModMessage()" disabled>Copy Mod Note to Clipboard</button>
+  <!-- Time calculator -->
+    <h1 id="youtube-interval-timer">Time calculator</h1>
     <!-- . -->
     <div class="col-sm-12" style="z-index:500">
       <div class="panel panel-default">
@@ -92,19 +92,20 @@
       </div>
     <!-- Better YT Frame Timer might be placed here idk-->
     <!-- How to use is below here -->
-    <h1 style="color:rgb(189, 189, 189)" id="youtube-interval-timer">How to use (With images)</h1>
-    <p style="color:rgb(189, 189, 189)">Step 1, Right click and find the frame rate of the video in "stats for nerds" (Circled in red) </p>
-    <p style="color:rgb(189, 189, 189)">the frame rate will be after the @ in "current/optimal res" (Circled in green)</p>
+    <h1 id="youtube-interval-timer">How to use (With images)</h1>
+    <p>Step 1, Right click and find the frame rate of the video in "stats for nerds" (Circled in red) </p>
+    <p>the frame rate will be after the @ in "current/optimal res" (Circled in green)</p>
     <img src="Image1.png" alt="Stats for nerds">
-    <p style="color:rgb(189, 189, 189)">Step 2, put this framerate into the "framerate" box on the site. (Circled in green) </p>
+    <p>Step 2, put this framerate into the "framerate" box on the site. (Circled in green) </p>
     <img src="Image2.png" alt="frame box">
-    <p style="color:rgb(189, 189, 189)">Step 3, Copy the debug info of the start and end frame. You can find the starts frame using <code>,</code> and <code>.</code> </p>
-    <p style="color:rgb(189, 189, 189)"> What counts as the start frame is different for basically every game, make sure you have the right ones.
+    <p>Step 3, Copy the debug info of the start and end frame. You can find the starts frame using <code>,</code> and <code>.</code> </p>
+    <p> What counts as the start frame is different for basically every game, make sure you have the right ones.
       <img src="Image3.png" alt="Debug info">
-      <p style="color:rgb(189, 189, 189)">Put the start frame in the box marked green, put the end frame in the box marked red.</p>
+      <p>Put the start frame in the box marked green, put the end frame in the box marked red.</p>
       <img src="Image4.png" alt="Start/endframe box">
-      <p style="color:rgb(189, 189, 189)">Step 5, hit "calculate time" to calculate the time.</p>
+      <p>Step 5, hit "calculate time" to calculate the time.</p>
       <img src="Image5.png" alt="Time">
-      <p style="color:rgb(189, 189, 189)">And that should be everything you need to know to use this, happy retiming!</p>
-  </div>
-</body>
+      <p>And that should be everything you need to know to use this, happy retiming!</p>
+  </body>
+</div>
+

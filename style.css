@@ -1968,3 +1968,6 @@ img {
 	padding-right: 0;
 	max-width: none
 }
+.white-text {
+	color: rgb(189, 189, 189)
+}
