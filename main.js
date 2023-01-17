@@ -53,8 +53,8 @@ function copyModMessage() {
     textArea.focus();
     textArea.select();
     document.execCommand('copy');
-    alert(`The mod message has been copied to clipboard! Please paste it into the comment of the run you are verifying.`);
-}
+    // alert(`The mod message has been copied to clipboard! Please paste it into the comment of the run you are verifying.`);
+}  // The line above has been disabled because its really fucking annoying, you can re-enable it by just remmoving the 2 slashes before "alert"
 
 const validateFPS = (event) => {
     // If framerate is invalid, show an error message and disable start and end frame fields
