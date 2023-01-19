@@ -1926,7 +1926,6 @@ img {
 	background-color: rgba(0, 0, 0, .075);
 	border-radius: 3px
 }
-
 .stackedit__left {
 	position: fixed;
 	display: none;
@@ -1969,5 +1968,17 @@ img {
 	max-width: none
 }
 .white-text {
-	color: rgb(189, 189, 189)
+	color: rgb(190, 190, 190);
+}
+button {
+	border-radius: 8px;
+	background: rgb(190, 190, 190);
+}
+input {
+	border-radius: 8px;
+	background: rgb(190, 190, 190);
+}
+textarea {
+	border-radius: 8px;
+	background: rgb(190, 190, 190);
 }
