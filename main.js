@@ -1,3 +1,5 @@
+
+
 function compute() {
 
     // Initiate basic time variables
@@ -5,6 +7,7 @@ function compute() {
     let minutes = 0;
     let seconds = 0;
     let milliseconds = 0;
+    
 
     // Get framerate, start frame, and end frame from corresponding elements
     // Double check they all have a value
@@ -159,11 +162,16 @@ function ckey(t) {
 var nodes = 1;
 
 function add_row(e, n) {
-    nodes >= 150 ? alert("Too many input fields") : (t = document.getElementById("tcalc"), r = document.getElementById("r0"), rn = r.cloneNode(!0), c = rn.getElementsByTagName("TD"), e ? (c[0].innerText = "-", c[0].textContent = "-") : (c[0].innerText = "+", c[0].textContent = "+"), rn.sign = e, rn.seconds = 0, c[0].id = "c0_" + nodes, c[1].id = "c1_" + nodes, c[2].id = "c2_" + nodes, c[3].id = "c3_" + nodes, rn.id = "r" + nodes, nodes++, inp = c[1].firstChild, inp.value = void 0 === n ? "00:00:00" : n, t.appendChild(rn), inp.select(), inp.focus())
+    nodes >= 1000 ? alert("Too many input fields") : (t = document.getElementById("tcalc"), r = document.getElementById("r0"), rn = r.cloneNode(!0), c = rn.getElementsByTagName("TD"), e ? (c[0].innerText = "-", c[0].textContent = "-") : (c[0].innerText = "+", c[0].textContent = "+"), rn.sign = e, rn.seconds = 0, c[0].id = "c0_" + nodes, c[1].id = "c1_" + nodes, c[2].id = "c2_" + nodes, c[3].id = "c3_" + nodes, rn.id = "r" + nodes, nodes++, inp = c[1].firstChild, inp.value = void 0 === n ? "00:00:00" : n, t.appendChild(rn), inp.select(), inp.focus())
+    nodeCountDiv = document.getElementById('nodecount');
+    nodeCountDiv.innerHTML = nodes;
 }
 
 function del(e) {
     "c2_0" != e.id && (t = document.getElementById("tcalc"), t.removeChild(e.parentNode), sum_all())
+    nodes--;
+    nodeCountDiv = document.getElementById('nodecount');
+    nodeCountDiv.innerHTML = nodes;
 }
 
 function clear_tab() {

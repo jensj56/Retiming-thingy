@@ -10,7 +10,7 @@
   #footer p {margin:20px 0 20px 0}
   /* godzinowy */
   #atco {text-align:right;float:right;font-size:10px;margin:0px;padding:0px;line-height:1.2em}
-#disp { border:2px inset #BBBBFF;background:rgb(36, 35, 35);color:yellow;padding:5px;font-size:25px;font-weight:bold;line-height:1.7em;border-radius:5px;margin-bottom:10px }
+#disp { border:2px inset #BBBBFF;background:rgb(36, 35, 35);color:yellow;padding:5px;font-size:25px;font-weight:bold;line-height:1.7em;border-radius:5px;margin-bottom:10px; }
 #dis2 {float:right;font-size:10px;margin:0px 0px 0px 5px;padding:0px;line-height:1.2em}
 /* predkosc...*/
   #scalc td {vertical-align:middle}
@@ -38,7 +38,6 @@ cursor:pointer;position:relative}
 .p_hit {background:red;color:yellow;font-size:140%;font-weight:bold;padding:5px;opacity:1;border-radius:5px}
 footer h6 {text-align:center}
 .anch {padding-top: 50px;margin-top: -50px;line-height:0;font-size:0;width:0}
-
 .btn {
     display: inline-block;
     margin-bottom: 0;
@@ -64,4 +63,7 @@ footer h6 {text-align:center}
     background-color: #428bca;
     border-color: #357ebd;
 }
-
+.debug {
+  display: flex;
+  flex-direction: row;
+}
