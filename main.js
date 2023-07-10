@@ -168,10 +168,14 @@ function add_row(e, n) {
 }
 
 function del(e) {
-    "c2_0" != e.id && (t = document.getElementById("tcalc"), t.removeChild(e.parentNode), sum_all())
-    nodes--;
-    nodeCountDiv = document.getElementById('nodecount');
-    nodeCountDiv.innerHTML = nodes;
+    //this is a hacky fix
+    var ele = document.getElementById(e.id).parentElement
+    if(ele.id != "r0"){
+        "c2_0" != e.id && (t = document.getElementById("tcalc"), t.removeChild(e.parentNode), sum_all())
+        nodes--;
+        nodeCountDiv = document.getElementById('nodecount');
+        nodeCountDiv.innerHTML = nodes;
+    }
 }
 
 function clear_tab() {
