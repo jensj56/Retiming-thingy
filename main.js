@@ -138,7 +138,7 @@ function licz(e) {
 
 function sum_all() {
     for (tc = document.getElementById("tcalc"), rows = tc.getElementsByTagName("TR"), sum = 0, i = 0; i < rows.length; i++) x = rows[i].seconds, s = rows[i].sign, x || (x = 0), s ? sum -= x : sum += x;
-    tab2 = sec2tab(sum), text = ftim(tab2[0]) + ":" + ftim(tab2[1]) + ":" + ftim(tab2[2]), document.getElementById("tco").innerText = text, document.getElementById("tco").textContent = text, ss = my_round(sum), mm = my_round(sum / 60), hh = my_round(sum / 3600), text = hh + "<br>" + mm + "<br>" + ss, document.getElementById("atco").innerHTML = text
+    tab2 = sec2tab(sum), text = ftim(tab2[0]) + ":" + ftim(tab2[1]) + ":" + cleanMilisecondsRound(ftim(tab2[2])), document.getElementById("tco").innerText = text, document.getElementById("tco").textContent = text, ss = my_round(sum), mm = my_round(sum / 60), hh = my_round(sum / 3600), text = hh + "<br>" + mm + "<br>" + ss, document.getElementById("atco").innerHTML = text
 }
 
 function ftim(t) {
@@ -185,4 +185,13 @@ function clear_tab() {
 
 function schg(e) {
     t = document.getElementById("tcalc"), p = e.parentNode, p.sign ? (p.sign = 0, e.innerText = "+", e.textContent = "+") : (p.sign = 1, e.innerText = "-", e.textContent = "-"), sum_all()
+}
+
+function cleanMilisecondsRound(number){
+    var Array = parseFloat(number).toPrecision(5).split(".");
+    var second = Array[1];
+    if(second.length > 3){
+        second = second.substring(0,3);
+    }
+    return Array[0] + "." + second;
 }

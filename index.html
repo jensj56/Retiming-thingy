@@ -18,7 +18,7 @@
   <div class="stackedit__html">
     <h1 id="title">YouTube Frame Timer/Time calculator</h1>
     <!--quick navigation-->
-    <a href="#video-endpoints">Skip to retimer</a><br>
+    <a href="#video-framerate">Skip to retimer</a><br>
     <a href="#youtube-interval-timer">Skip to time calculator</a><br>
     <a href="#how-to-use">Skip to how to use</a>
     <!--about-->
@@ -62,7 +62,9 @@
       <button id="modMessageButton" onclick="copyModMessage()" disabled>Copy Mod Note to Clipboard</button>
   <!-- Time calculator -->
     <h1 id="youtube-interval-timer">Time calculator</h1>
-    <p>Note: Sometimes it messes up the ms a bit, if it says 0.19999999999 its not 0.199, its 0.200. <br> I have no clue how to fix this.</p>
+    <!-- <p>Note: Sometimes it messes up the ms a bit, if it says 0.19999999999 its not 0.199, its 0.200. <br> I have no clue how to fix this.</p>
+      this is fixed now, this is a very common thing with floating point numbers. - Lars 
+    -->
     <div class="col-sm-12" style="z-index:500">
     <div class="debug">Node-count: <div id="nodecount"></div>/1000 </div>
       <div class="panel panel-default">
