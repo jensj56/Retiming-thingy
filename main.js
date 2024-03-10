@@ -41,7 +41,7 @@ function compute() {
     minutes = minutes < 10 ? `0${minutes}` : minutes;
     // Show the time and mod message in the DOM
     let finalTime = hours.toString() + ':' + minutes.toString() + ':' + seconds.toString() + '.' + milliseconds.toString();
-    let modMessage = `Mod Note: Time starts at ${parseFloat(startFrame).toFixed(3)} and ends at ${parseFloat(endFrame).toFixed(3)} at ${frameRate} fps to get a final time of ${finalTime}.`;
+    let modMessage = `Mod Note: Start: ${parseFloat(startFrame).toFixed(3)} End: ${parseFloat(endFrame).toFixed(3)} At ${frameRate} fps. Final Time: ${finalTime}.`;
     // let credits = `Retimed using a custom version of slashinfty's retimer.`;
     let credits = ''
     document.getElementById('time').value = finalTime;
